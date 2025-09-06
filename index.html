@@ -150,11 +150,15 @@
 
   <!-- Evento personalizado para el botón -->
   <script>
-    document.getElementById('crear-usuario').addEventListener('click', function() {
-      fbq('trackCustom', 'ClickCrearUsuario');
-      window.location.href = "https://wa.me/5491125717779"; // Reemplazá con tu WhatsApp
-    });
+   document.getElementById('crear-usuario').addEventListener('click', function() {
+  fbq('trackCustom', 'ClickCrearUsuario');
+  setTimeout(function() {
+    window.location.href = "https://wa.me/5491125717779";
+  }, 200);
+});
+
   </script>
 
 </body>
 </html>
+
