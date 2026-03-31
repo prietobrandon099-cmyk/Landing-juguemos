@@ -142,22 +142,26 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '763714226261435'); // Reemplazá TU_PIXEL_ID con tu Pixel
     fbq('track', 'PageView');
-    fbq('track', 'Lead');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/>
+         src="https://www.facebook.com/tr?id=763714226261435&ev=PageView&noscript=1"/>
   </noscript>
 
   <!-- Evento personalizado para el botón -->
-  <script>
-   document.getElementById('crear-usuario').addEventListener('click', function() {
-  fbq('trackCustom', 'ClickCrearUsuario');
-  setTimeout(function() {
-    window.location.href = "https://wa.me/5491164876966?text=Holaa,%20quiero%20jugar!";
-  }, 200);
-});
+ <script>
+    document.getElementById('crear-usuario').addEventListener('click', function() {
+      // Disparamos el evento Lead
+      fbq('track', 'Lead');
 
+      // Tu evento personalizado
+      fbq('trackCustom', 'ClickCrearUsuario');
+
+      // Redirigimos a WhatsApp con un delay para que Facebook procese el evento
+      setTimeout(function() {
+        window.location.href = "https://wa.me/5491164876966?text=Holaa,%20quiero%20jugar!";
+      }, 3000);
+    });
   </script>
 
 </body>
